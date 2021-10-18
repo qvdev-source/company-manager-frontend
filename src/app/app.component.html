@@ -1,0 +1,35 @@
+
+
+
+
+  <nav>
+    <a [routerLink]="['/dashbaord']">
+        <i class="material-icons">dashboard</i>
+        <span>Dashboard</span>
+    </a>
+    <a [routerLink]="['/login']" class=active *ngIf="!user">
+        <i class="material-icons">psychology</i>
+        <span>Login</span>
+    </a>
+    <a [routerLink]="['/login']" class=active *ngIf="user">
+      <i class="material-icons">person</i>
+      <span>Users</span>
+    </a>
+    <a [routerLink]="['/dashbaord']" (click)="logout()">
+        <i class="material-icons">logout</i>
+        <span>Logout</span>
+    </a>
+    <a [routerLink]="['/login']">
+      <i class="material-icons">error</i>
+      <span>Something</span>
+   </a>
+  </nav>
+  <div id=body>
+    <div id=content>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+
+

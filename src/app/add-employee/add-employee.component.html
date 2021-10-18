@@ -1,0 +1,39 @@
+<div style="  margin: auto; width: 100%; border: 3px solid #3f51b5;">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add employee</mat-card-title>
+    </mat-card-header>
+    <mat-card-content><br><br>
+      <mat-progress-bar mode="buffer" *ngIf="progressBar"></mat-progress-bar>
+       <form>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Enter name</mat-label>
+          <input matInput type="text" placeholder="Name" name="name" [(ngModel)]="employee.name" #name="ngModel" required>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Enter address</mat-label>
+          <input matInput type="text" placeholder="Address" name="address" [(ngModel)]="employee.address" #address="ngModel" required>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Enter birth date</mat-label>
+          <input matInput type="text" placeholder="Birth date" name="birthDate" [(ngModel)]="employee.birthDate" #birthDate="ngModel" required>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Enter hiring date</mat-label>
+          <input matInput type="text" placeholder="Hiring date" name="hiringDate" [(ngModel)]="employee.hiringDate" #hiringDate="ngModel" required>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Enter salary</mat-label>
+          <input matInput type="number" placeholder="Salary" name="salary" [(ngModel)]="employee.salary" #salary="ngModel" required>
+        </mat-form-field><br>
+
+          <button mat-raised-button color="primary"
+          [disabled]="name.invalid || salary.invalid || address.invalid || birthDate.invalid || hiringDate.invalid" (click)="addEmployee()" style="width : 10em !important">Save</button>
+       </form>
+    </mat-card-content>
+  </mat-card>
+  </div>

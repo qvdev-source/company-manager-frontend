@@ -1,0 +1,19 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{project.name}}</mat-card-title>
+    <mat-card-subtitle>{{project.createAt|date}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p style="background: #f5f6fa; padding: 15px;border-radius: 6px;">
+      {{project.description}}
+    </p>
+    <hr>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" *ngIf="project.process==['TODO']">{{project.process}}</button>
+    <button mat-raised-button color="accent" *ngIf="project.process==['WORKON']">{{project.process}}</button>
+    <button mat-raised-button color="warn" *ngIf="project.process==['DONE']">{{project.process}}</button>
+    <button mat-button color="primary" (click)="editProject(project.id)">Edit project</button>
+    <button mat-button color="accent" (click)="deleteProject(project.id)">Delete project</button>
+  </mat-card-actions>
+</mat-card>

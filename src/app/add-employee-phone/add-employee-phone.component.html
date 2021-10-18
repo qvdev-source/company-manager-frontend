@@ -1,0 +1,18 @@
+<div style="  margin: auto; width: 100%; border: 3px solid #3f51b5;">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add company</mat-card-title>
+    </mat-card-header>
+    <mat-card-content><br><br>
+      <mat-progress-bar mode="buffer" *ngIf="progressBar"></mat-progress-bar>
+       <form>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Enter phone</mat-label>
+          <input matInput type="text" placeholder="Phone" name="phone" [(ngModel)]="employeePhone.phone" #phone="ngModel" required>
+        </mat-form-field><br>
+
+          <button mat-raised-button color="primary" [disabled]="phone.invalid" (click)="addPhone()" style="width : 10em !important">Save</button>
+       </form>
+    </mat-card-content>
+  </mat-card>
+  </div>

@@ -1,0 +1,33 @@
+<div style="  margin: auto; width: 100%; border: 3px solid #3f51b5;">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add project to department</mat-card-title>
+    </mat-card-header>
+    <mat-card-content><br><br>
+      <mat-progress-bar mode="buffer" *ngIf="progressBar"></mat-progress-bar>
+      <form>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Enter name</mat-label>
+          <input matInput type="text" placeholder="name" name="Name" [(ngModel)]="project.name" #name="ngModel"
+            required>
+        </mat-form-field><br>
+
+        <mat-form-field style="width: 100%;">
+          <mat-label>Enter description</mat-label>
+          <textarea matInput placeholder="Description" name="description" [(ngModel)]="project.description"
+            #description="ngModel"></textarea>
+        </mat-form-field><br>
+
+        <label style="font-weight: bold;">Process</label><br><br>
+        <mat-radio-group name="process" [(ngModel)]="process" (ngModelChange)="setProcess($event)">
+          <mat-radio-button [checked]="project.process==['TODO']" [value]="'TODO'"> To do </mat-radio-button><br>
+          <mat-radio-button [checked]="project.process==['WORKON']" [value]="'WORKON'" style="margin: 10px 0"> Workon </mat-radio-button><br>
+          <mat-radio-button [checked]="project.process==['DONE']" [value]="'DONE'"> Done </mat-radio-button><br>
+        </mat-radio-group><br>
+
+        <button mat-raised-button color="primary" [disabled]="name.invalid || description.invalid"
+          (click)="addProject()" style="width : 10em !important">Save</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

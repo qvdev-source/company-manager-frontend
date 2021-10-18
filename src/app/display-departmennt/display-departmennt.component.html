@@ -1,0 +1,33 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Department: {{department.code}}</mat-card-title>
+    <mat-card-subtitle>Location: {{department.location}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p style="background: #f5f6fa; padding: 15px;border-radius: 6px; color: rgba(0,0,0,.54);">
+      {{department.description}}
+    </p>
+    <hr>
+    <mat-list>
+      <div mat-subheader>Projects</div>
+      <mat-list-item *ngFor="let pro of department.projects">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line>{{pro.name}}</div>
+        <div mat-line> {{pro.createAt | date}} </div>
+        <button mat-raised-button color="primary" [routerLink]="['/dashbaord/display-department/' + department.id + '/display-project/', pro.id]" >Project details</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary" (click)="addEmployee(department.id)">Add employee</button>
+    <button mat-button color="primary" (click)="addProject(department.id)">Add project</button>
+    <button mat-button color="accent" (click)="editDepartment(department.id)">Update department</button>
+    <button mat-button color="warn" (click)="deleteDepartment(department.id)">Delete department</button>
+    <button mat-button disabled>{{department.createAt|date}}</button>
+  </mat-card-actions>
+</mat-card>
+
+<div style="margin-top: 15px; margin-bottom: 40px;">
+  <router-outlet></router-outlet>
+</div>

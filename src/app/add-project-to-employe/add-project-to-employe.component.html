@@ -1,0 +1,20 @@
+<div style="  margin: auto; width: 100%; border: 3px solid #3f51b5;">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add project to employee</mat-card-title>
+    </mat-card-header>
+    <mat-card-content><br><br>
+      <mat-progress-bar mode="buffer" *ngIf="progressBar"></mat-progress-bar>
+      <form>
+
+        <mat-form-field style="width: 100%;">
+          <mat-label>Choose a project</mat-label>
+          <mat-select (selectionChange)="AddProjectToEmployee($event)">
+            <mat-option *ngFor="let pro of projects" [value]="pro.id">{{pro.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

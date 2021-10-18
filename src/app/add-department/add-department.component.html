@@ -1,0 +1,25 @@
+<div style="  margin: auto; width: 100%; border: 3px solid #3f51b5;">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add department</mat-card-title>
+    </mat-card-header>
+    <mat-card-content><br><br>
+      <mat-progress-bar mode="buffer" *ngIf="progressBar"></mat-progress-bar>
+       <form>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Enter code</mat-label>
+          <input matInput type="text" placeholder="Code" name="code" [(ngModel)]="department.code" #code="ngModel" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Enter location</mat-label>
+          <input matInput type="text" placeholder="Location" name="location" [(ngModel)]="department.location" #location="ngModel" required>
+        </mat-form-field><br>
+        <mat-form-field style="width: 100%;">
+          <mat-label>Enter description</mat-label>
+          <textarea matInput placeholder="Description" name="description" [(ngModel)]="department.description" #description="ngModel"></textarea>
+        </mat-form-field><br>
+          <button mat-raised-button color="primary" [disabled]="code.invalid || location.invalid || description.invalid" (click)="addDeprtmant()" style="width : 10em !important">Save</button>
+       </form>
+    </mat-card-content>
+  </mat-card>
+  </div>
